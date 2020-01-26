@@ -18,7 +18,7 @@ setup(
     name=NAME,
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
-    description='Web-scraping http://dart.fss.or.kr',
+    description='Web-scraping http://opendart.fss.or.kr',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Sungwoo Jo',

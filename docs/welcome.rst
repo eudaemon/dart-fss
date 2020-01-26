@@ -7,7 +7,7 @@ DART-FSS
 ..  image:: https://codecov.io/gh/josw123/dart-fss/branch/master/graphs/badge.svg
 ..  image:: https://api.codacy.com/project/badge/Grade/7ebb506ba99d4a22b2bbcda2d85b3bde
 
-대한민국 금융감독원에서 운영하는 다트(`DART <https://dart.fss.or.kr>`_) 사이트 크롤링 및 재무제표 추출을 위한 라이브러리
+대한민국 금융감독원에서 운영하는 다트(`DART <https://opendart.fss.or.kr>`_) 사이트 크롤링 및 재무제표 추출을 위한 라이브러리
 
 Installation
 ------------
@@ -18,8 +18,8 @@ Installation
 
 DART API 신청
 -------------
--   `DART API 신청 <https://dart.fss.or.kr/dsag002/insertForm.do>`_
--   `API Key 확인 <http://dart.fss.or.kr/dsap001/apikeyManagement.do>`_
+-   `DART API 신청 <https://opendart.fss.or.kr/dsag002/insertForm.do>`_
+-   `API Key 확인 <http://opendart.fss.or.kr/dsap001/apikeyManagement.do>`_
 
 Quick Starts
 -------------
@@ -49,7 +49,7 @@ Quick Starts
 -   Dart-Fss 라이브러리는 오픈 API의 응답 방식 중 JSON 방식을 사용 중
 -   현재 DART 오픈 API의 응답 방식이 JSON인 경우 오류 발생시 오류 메시지를 보내지 않음 (응답방식이 xml인 경우 올바르게 작동함)
 
-[XML](http://dart.fss.or.kr/api/search.xml?auth=x&bsn_tp=a) 결과
+[XML](http://opendart.fss.or.kr/api/search.xml?auth=x&bsn_tp=a) 결과
 
 ..  code-block:: xml
 
@@ -64,7 +64,7 @@ Quick Starts
     </result>
 
 
-[JSON](http://dart.fss.or.kr/api/search.json?auth=x&bsn_tp=a) 결과
+[JSON](http://opendart.fss.or.kr/api/search.json?auth=x&bsn_tp=a) 결과
 
 .. code-block:: json
 

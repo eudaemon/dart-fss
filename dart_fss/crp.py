@@ -31,7 +31,7 @@ class Crp(object):
         종목의 취급 물품
 
     """
-    _SEARCH_URL_ = 'http://dart.fss.or.kr/api/'
+    _SEARCH_URL_ = 'http://opendart.fss.or.kr/api/'
 
     def __init__(self, crp_cd: str, lazy_loading: bool = True, **kwargs):
         """ 종목 정보 초기화

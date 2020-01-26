@@ -13,8 +13,8 @@
 ## Features
 
 -   [KIND](http://kind.krx.co.kr)를 이용한 기업정보 검색
--   [DART](http://dart.fss.or.kr)의 오픈 API를 이용한 전자공시 조회
--   [DART](http://dart.fss.or.kr)의 전자공시 정보를 이용한 재무제표 추출
+-   [DART](http://opendart.fss.or.kr)의 오픈 API를 이용한 전자공시 조회
+-   [DART](http://opendart.fss.or.kr)의 전자공시 정보를 이용한 재무제표 추출
 
 ## Installation
 ```bash
@@ -43,8 +43,8 @@ pip install dart-fss
 
 ### Dart API Key 설정
 
--  [DART API 신청](https://dart.fss.or.kr/dsag002/insertForm.do)
--  [API Key 확인](http://dart.fss.or.kr/dsap001/apikeyManagement.do)
+-  [DART API 신청](https://opendart.fss.or.kr/dsag002/insertForm.do)
+-  [API Key 확인](http://opendart.fss.or.kr/dsap001/apikeyManagement.do)
 -  환경 변수 DART_API_KEY 설정 또는 패키지 사용전 아래와 같이 설정
 
 ```python
@@ -64,7 +64,7 @@ dart.dart_set_api_key(api_key=api_key)
 -   Dart-Fss 라이브러리는 오픈 API의 응답 방식 중 JSON 방식을 사용 중
 -   현재 DART 오픈 API의 응답 방식이 JSON인 경우 오류 발생시 오류 메시지를 보내지 않음 (응답방식이 xml인 경우 올바르게 작동함)
 
-[XML](http://dart.fss.or.kr/api/search.xml?auth=x&bsn_tp=a) 결과
+[XML](http://opendart.fss.or.kr/api/search.xml?auth=x&bsn_tp=a) 결과
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <result>
@@ -77,7 +77,7 @@ dart.dart_set_api_key(api_key=api_key)
 </result>
 ```
 
-[JSON](http://dart.fss.or.kr/api/search.json?auth=x&bsn_tp=a) 결과
+[JSON](http://opendart.fss.or.kr/api/search.json?auth=x&bsn_tp=a) 결과
 ```json
 {"err_code":"000","err_msg":"정상","page_no":1,"page_set":10,"total_count":0,"total_page":0,"list":[]}
 ```
