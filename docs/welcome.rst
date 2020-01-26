@@ -49,7 +49,7 @@ Quick Starts
 -   Dart-Fss 라이브러리는 오픈 API의 응답 방식 중 JSON 방식을 사용 중
 -   현재 DART 오픈 API의 응답 방식이 JSON인 경우 오류 발생시 오류 메시지를 보내지 않음 (응답방식이 xml인 경우 올바르게 작동함)
 
-[XML](http://opendart.fss.or.kr/api/search.xml?auth=x&bsn_tp=a) 결과
+[XML](http://opendart.fss.or.kr/api/search.xml?crtfc_key=x&bsn_tp=a) 결과
 
 ..  code-block:: xml
 
@@ -64,7 +64,7 @@ Quick Starts
     </result>
 
 
-[JSON](http://opendart.fss.or.kr/api/search.json?auth=x&bsn_tp=a) 결과
+[JSON](http://opendart.fss.or.kr/api/list.json?crtfc_key=x&bsn_tp=a) 결과
 
 .. code-block:: json
 

@@ -311,9 +311,9 @@ def search_report(crp_cd: str = None, start_dt: str = None, end_dt: str = None,
 
     api_key = DartAuth().api_key
 
-    url = 'http://opendart.fss.or.kr/api/search.json'
+    url = 'http://opendart.fss.or.kr/api/list.json'
     params = dict()
-    params['auth'] = api_key
+    params['crtfc_key'] = api_key
 
     params = _set_params(params, crp_cd=crp_cd, start_dt=start_dt, end_dt=end_dt, fin_rpt=fin_rpt,
                          dsp_tp=dsp_tp, bsn_tp=bsn_tp, sort=sort, series=series)
