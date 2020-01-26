@@ -4,6 +4,7 @@ ERROR_CODE = {
     '000': 'OK',
     '010': 'Unregistered API key',
     '011': 'This API key is temporarily locked',
+    '013': 'No data',
     '020': 'This API key is over query limit',
     '100': 'Invalid field',
     '800': 'Open API was closed for web service',
@@ -24,9 +25,9 @@ def check_err_code(**kwargs) -> None:
         err_code 가 정상이 아닐때 발생하는 오류
 
     """
-    err_code = kwargs.get('err_code')
-    err_msg = kwargs.get('err_msg')
-    if err_code == '000':
+    err_code = kwargs.get('status')
+    err_msg = kwargs.get('message')
+    if err_code == '000' or err_code == '013':
         pass
     else:
         raise DartAPIError(err_code, err_msg)

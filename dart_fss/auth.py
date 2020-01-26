@@ -59,9 +59,9 @@ class DartAuth(object, metaclass=Singleton):
         if not isinstance(api_key, str):
             raise ValueError('The Dart Api key must be provided through the api_key variable')
 
-        url = 'http://opendart.fss.or.kr/api/search.json'
+        url = 'http://opendart.fss.or.kr/api/list.json'
         params = dict()
-        params['auth'] = api_key
+        params['crtfc_key'] = api_key
 
         resp = request_get(url=url, params=params)
         data = resp.json()
