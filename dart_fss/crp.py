@@ -110,7 +110,7 @@ class Crp(object):
 
     def search_report(self, start_dt: str = None, end_dt: str = None, fin_rpt: bool = False,
                       dsp_tp: str_or_list = None, bsn_tp: str_or_list = None, sort: str = 'date',
-                      series: str = 'desc', page_no: int = 1, page_set: int = 10) -> SearchResults:
+                      series: str = 'desc', page_no: int = 1, page_count: int = 10) -> SearchResults:
         """ 종목에 관한 DART 공시 정보 검색
 
         Parameters
@@ -131,7 +131,7 @@ class Crp(object):
             오름차순(asc), 내림차순(desc) 기본값 : desc
         page_no: int
             페이지 번호, 기본값: 1
-        page_set: int
+        page_count: int
             페이지당 건수(1-100) 기본값: 10, 최대값: 100
 
         Returns
@@ -142,7 +142,7 @@ class Crp(object):
         """
 
         return search_report(self.crp_cd, start_dt, end_dt, fin_rpt, dsp_tp,
-                             bsn_tp, sort, series, page_no, page_set)
+                             bsn_tp, sort, series, page_no, page_count)
 
     def get_financial_statement(self, start_dt: str, end_dt: str = None, fs_tp: tuple = ('fs', 'is', 'ci', 'cf'),
                                 separate: bool = False, report_tp: str = 'annual',

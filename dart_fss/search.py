@@ -123,7 +123,7 @@ class SearchResults(object):
     def __init__(self, **kwargs):
 
         self._page_no = None
-        self._page_set = None
+        self._page_count = None
         self._total_count = None
         self._total_page = None
         self._report_list = None
@@ -135,7 +135,7 @@ class SearchResults(object):
         data = kwargs.get('data')
         check_err_code(**data)
         self._page_no = data['page_no']
-        self._page_set = data['page_set']
+        self._page_count = data['page_count']
         self._total_count = data['total_count']
         self._total_page = data['total_page']
         self._report_list = [Report(**r) for r in data['report_list']]
@@ -170,15 +170,15 @@ class SearchResults(object):
         self.page_no = self.page_no - 1
 
     @property
-    def page_set(self):
+    def page_count(self):
         """페이지당 표시할 리포트수"""
-        return self._page_set
+        return self._page_count
 
-    @page_set.setter
-    def page_set(self, page_set):
+    @page_count.setter
+    def page_count(self, page_count):
         params = self._params
-        if isinstance(page_set, int) and (1 <= page_set <= 100):
-            params['page_set'] = page_set
+        if isinstance(page_count, int) and (1 <= page_count <= 100):
+            params['page_count'] = page_count
             self._search_report(**params)
         else:
             raise ValueError('Invalid page_no')
@@ -246,7 +246,7 @@ class SearchResults(object):
         """
         return {
             'page_no': self.page_no,
-            'page_set': self.page_set,
+            'page_count': self.page_count,
             'total_count': self.total_count,
             'total_page': self.total_page,
             'report_list': [x.to_dict() for x in self.report_list]
@@ -272,7 +272,7 @@ SearchResults_or_dict = Union[SearchResults, Dict[str, str]]
 def search_report(crp_cd: str = None, start_dt: str = None, end_dt: str = None,
                   fin_rpt: bool = False, dsp_tp: List_or_str = None, bsn_tp: List_or_str = None,
                   sort: str = 'date', series: str = 'desc', page_no: int = 1,
-                  page_set: int = 10, return_dict: bool = False) -> SearchResults_or_dict:
+                  page_count: int = 10, return_dict: bool = False) -> SearchResults_or_dict:
     """ DART 공시 정보 검색
 
     DART 에 공시된 정보를 검색하는 함수로, Parameters 가 설정되지 않을 경우 당일 접수 10건을 검색함
@@ -297,7 +297,7 @@ def search_report(crp_cd: str = None, start_dt: str = None, end_dt: str = None,
         오름차순(asc), 내림차순(desc) 기본값 : desc
     page_no: int
         페이지 번호, 기본값: 1
-    page_set: int
+    page_count: int
         페이지당 건수(1-100) 기본값: 10, 최대값: 100
     return_dict: bool
         dict 타입으로 반환할지 여부, 기본은 SearchResults
@@ -321,11 +321,12 @@ def search_report(crp_cd: str = None, start_dt: str = None, end_dt: str = None,
     if isinstance(page_no, int) and 1 <= page_no:
         params['page_no'] = page_no
 
-    if isinstance(page_set, int) and (1 <= page_set <= 100):
-        params['page_set'] = page_set
+    if isinstance(page_count, int) and (1 <= page_count <= 100):
+        params['page_count'] = page_count
 
     resp = request_get(url=url, params=params)
     data = resp.json()
+    print(data)
     data['report_list'] = data.pop('list')
 
     params.pop('auth')
@@ -367,7 +368,7 @@ def search_report_with_cache(**kwargs):
         오름차순(asc), 내림차순(desc) 기본값 : desc
     page_no: int
         페이지 번호, 기본값: 1
-    page_set: int
+    page_count: int
         페이지당 건수(1-100) 기본값: 10, 최대값: 100
     return_dict: bool
         dict 타입으로 반환할지 여부, 기본은 SearchResults
@@ -388,8 +389,8 @@ def search_report_with_cache(**kwargs):
     sort = kwargs.get('sort', None)
     series = kwargs.get('series', None)
     page_no = kwargs.get('page_no', None)
-    page_set = kwargs.get('page_set', None)
-    key = (crp_cd, start_dt, end_dt, fin_rpt, dsp_tp, bsn_tp, sort, series, page_no, page_set)
+    page_count = kwargs.get('page_count', None)
+    key = (crp_cd, start_dt, end_dt, fin_rpt, dsp_tp, bsn_tp, sort, series, page_no, page_count)
     cashed_time, report = cached_reports.get(key, (None, None))
     if report is None:
         report = search_report(**kwargs)

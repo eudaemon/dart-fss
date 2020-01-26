@@ -993,7 +993,7 @@ def search_financial_statement(crp_cd: str, start_dt: str, end_dt: str = None,
 
     # 사업보고서 검색(최종보고서)
     reports = search_report(crp_cd=crp_cd, start_dt=start_dt, end_dt=end_dt,
-                            bsn_tp='A001', page_set=100, fin_rpt=True)
+                            bsn_tp='A001', page_count=100, fin_rpt=True)
 
     if len(reports) == 0:
         # todo 감사보고서를 이용하여 재무제표 검색
@@ -1034,13 +1034,13 @@ def search_financial_statement(crp_cd: str, start_dt: str, end_dt: str = None,
 
     if compare_str(report_tp, 'half') or compare_str(report_tp, 'quarter'):
         half = search_report(crp_cd=crp_cd, start_dt=start_dt, end_dt=end_dt,
-                             bsn_tp=['A002'], page_set=100, fin_rpt=True)
+                             bsn_tp=['A002'], page_count=100, fin_rpt=True)
         for report in tqdm(half, desc='Semiannual reports', unit='report'):
             statements, label_df = merge_fs(statements, label_df, report, fs_tp=fs_tp, separate=separate, lang=lang)
 
     if compare_str(report_tp, 'quarter'):
         quarter = search_report(crp_cd=crp_cd, start_dt=start_dt, end_dt=end_dt,
-                                bsn_tp=['A003'], page_set=100, fin_rpt=True)
+                                bsn_tp=['A003'], page_count=100, fin_rpt=True)
         for report in tqdm(quarter, desc='Quarterly report', unit='report'):
             statements, label_df = merge_fs(statements, label_df, report, fs_tp=fs_tp, separate=separate, lang=lang)
 

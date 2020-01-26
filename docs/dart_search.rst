@@ -30,7 +30,7 @@ Example
     reports = search_report(start_dt='20190101', end_dt='20190331')
 
     # 2019년 1월 1일부터 2019년 3월 31일까지 검색 (페이지당 표시 건수: 100)
-    reports = search_report(start_dt='20190101', end_dt='20190331', page_set=100)
+    reports = search_report(start_dt='20190101', end_dt='20190331', page_count=100)
 
     # 2019년 5월 1일부터 2019년 7월 1일까지 연간보고서만 검색
     reports = search_report(start_dt='20190501', end_dt='20190701', bsn_tp='a001')
@@ -90,6 +90,6 @@ Example
     filtered = reports.filter(fin_rpt=True)
 
     # 페이지당 표시할 리포트 수 변경
-    reports.page_set = 100
+    reports.page_count = 100
 
 

@@ -20,15 +20,15 @@ def test_search_report_set_page_no(annual_reports):
         annual_reports.page_no = 2
 
 
-def test_search_report_get_page_set(annual_reports):
-    actual = annual_reports.page_set
+def test_search_report_get_page_count(annual_reports):
+    actual = annual_reports.page_count
     expected = 10
     assert actual == expected
 
 
-def test_search_report_set_page_set(annual_reports):
+def test_search_report_set_page_count(annual_reports):
     with pytest.raises(ValueError):
-        annual_reports.page_set = 0
+        annual_reports.page_count = 0
 
 
 def test_search_report_total_count(annual_reports):

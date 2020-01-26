@@ -58,7 +58,7 @@ Quick Starts
         <err_code>010</err_code>
         <err_msg>미등록 인증키</err_msg>
         <page_no>1</page_no>
-        <page_set>10</page_set>
+        <page_count>10</page_count>
         <total_count>0</total_count>
         <total_page>0</total_page>
     </result>
@@ -68,6 +68,6 @@ Quick Starts
 
 .. code-block:: json
 
-    {"err_code":"000","err_msg":"정상","page_no":1,"page_set":10,"total_count":0,"total_page":0,"list":[]}
+    {"err_code":"000","err_msg":"정상","page_no":1,"page_count":10,"total_count":0,"total_page":0,"list":[]}
 
 

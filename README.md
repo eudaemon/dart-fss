@@ -71,7 +71,7 @@ dart.dart_set_api_key(api_key=api_key)
     <err_code>010</err_code>
     <err_msg>미등록 인증키</err_msg>
     <page_no>1</page_no>
-    <page_set>10</page_set>
+    <page_count>10</page_count>
     <total_count>0</total_count>
     <total_page>0</total_page>
 </result>
@@ -79,5 +79,5 @@ dart.dart_set_api_key(api_key=api_key)
 
 [JSON](http://opendart.fss.or.kr/api/list.json?crtfc_key=x&bsn_tp=a) 결과
 ```json
-{"err_code":"000","err_msg":"정상","page_no":1,"page_set":10,"total_count":0,"total_page":0,"list":[]}
+{"err_code":"000","err_msg":"정상","page_no":1,"page_count":10,"total_count":0,"total_page":0,"list":[]}
 ```
