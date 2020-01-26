@@ -326,7 +326,6 @@ def search_report(crp_cd: str = None, start_dt: str = None, end_dt: str = None,
 
     resp = request_get(url=url, params=params)
     data = resp.json()
-    print(data)
     data['report_list'] = data.pop('list')
 
     params.pop('auth')
